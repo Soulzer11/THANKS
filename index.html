@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अन्तिम बिदाइ... 💔</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #f4f1ea; /* पुरानो कागज जस्तो रङ्ग */
+            font-family: 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* सुरुको स्क्रिन */
+        #phase1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 1s;
+        }
+
+        #phase1 h1 {
+            font-size: 2.5rem;
+            color: #5d4037;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .open-letter-btn {
+            background-color: #5d4037;
+            color: #f4f1ea;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .open-letter-btn:hover { background-color: #3e2723; }
+
+        /* मुख्य पत्र */
+        #phase2 {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            max-width: 750px;
+            width: 100%;
+            animation: fadeIn 2s ease;
+        }
+
+        /* २ फोटोको लागि कन्टेनर */
+        .photo-gallery {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .memory-photo {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #d7ccc8;
+            filter: grayscale(100%); /* फोटोलाई कालो-सेतो बनाउने */
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            transition: 0.5s;
+        }
+
+        .memory-photo:hover {
+            filter: grayscale(0%); /* माउस लैजाँदा रङ्गीन हुने */
+            transform: scale(1.05);
+        }
+
+        .letter-content {
+            background: #fff;
+            padding: 45px;
+            border-radius: 2px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: left;
+            white-space: pre-wrap;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        /* टाइपराइटर कर्सर */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: #5d4037;
+            margin-left: 2px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .footer-note {
+            margin-top: 30px;
+            font-style: italic;
+            color: #8d6e63;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="phase1">
+        <h1>तिम्रो लागि अन्तिम पत्र</h1>
+        <button class="open-letter-btn" onclick="openLetter()">click to open please </button>
+    </div>
+
+    <div id="phase2">
+        <div class="photo-gallery">
+            <img src="memory1.jpg" alt="Memory 1" class="memory-photo" onerror="this.style.display='none'">
+            <img src="memory2.jpg" alt="Memory 2" class="memory-photo" onerror="this.style.display='none'">
+        </div>
+        
+        <div class="letter-content">
+            <span id="typewriter"></span><span class="cursor" id="cursor"></span>
+        </div>
+
+        <p class="footer-note">THANK YOU😊 </p>
+    </div>
+
+    <audio id="sadMusic">
+        <source src="sad_music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const message = `प्रिय........
+
+आज अन्तिम पटक तिमीलाई 'प्रिय' भनेर सम्बोधन गर्दैछु, किनकि भोलिदेखि यो शब्दमा मेरो कुनै अधिकार रहनेछैन। तिमीले मबाट टाढा जाने निर्णय गर्दा मेरो मुटुको धड्कन रोकिए जस्तो भयो!
+
+मलाई कति कठिन भइरहेको छ, त्यो केवल म र यो मौन रातलाई मात्र थाहा छ! आज यो पत्र लेखिरहँदा हातहरू काँपिरहेका छन् र आँखाहरू धमिलो भइरहेका छन्। सायद सोचेको थिइनँ कि हाम्रो सम्बन्धको अन्त्य यसरी हुनेछ। तर जब तिमीले मबाट टाढा जाने निर्णय नै गरिसक्यौ भने तिम्रो खुसीको अगाडि मेरो जिद्दीको कुनै अर्थ रहँदैन। मलाई थाहा छ, प्रेम जबरजस्ती गरेर पाइने चिज होइन त्यसैले तिमीलाई मलाई नै रोज भनेर म तिम्रो स्वतन्त्रता खोस्न चाहन्नँ।
+
+तिमी मेरो जीवनको त्यो 'मृगतृष्णा' थियौ, जसलाई भेट्टाउने आसमा मैले कयौँ माइल हिँडेँ तर अन्त्यमा तिर्खा मेटिनुको साटो मन झन् प्यासी बनेर रह्यो। तिम्रो हरेक शब्द, हरेक स्पर्श र त्यो मधुर मुस्कान अब मेरो डायरीका लामा पानाहरूमा मात्र सीमित हुनेछन्। म त एउटा यस्तो लेखक बनेछु, जसले आफ्नो कथाको सबैभन्दा प्रिय पात्रलाई आफैँले बिदा गर्नुपरेको छ।
+
+आजसम्म तिमीले मलाई जुन साथ दियौ, जुन माया र सपोर्ट दियौ, त्यसको लागि म शब्दमा धन्यवाद भन्न सक्दिनँ। मेरो अँध्यारो जीवनमा तिमी एउटा उज्यालो किरण बनेर आएकी थियौ। तिमीसँग बिताएका ती पलहरू, ती लामा कुराकानीहरू, र हामीले सँगै बुनेका ती स-साना सपनाहरू अब मेरो लागि केवल स्मृति मात्र बन्नेछन्।
+
+कति चाँडै समय फेरिएछ, हिजोसम्म जोसँग जीवन बिताउने कुरा हुन्थेन, आज उसैलाई सदाको लागि बिदा गर्नुपर्ने मोडमा म उभिएको छु। मलाई लाग्थ्यो हाम्रो सम्बन्ध ढुङ्गामा कुँदिएको अक्षर जस्तै अमेट छ। तर आज महसुस हुँदैछ कि समयको बहावले त बालुवाको महल मात्र होइन, कयौँका सपनाहरू पनि बगाएर लैजाँदो रहेछ।
+
+तिमी टाढा जान खोज्दा मेरो मन भित्रभित्रै टुक्रिएको छ, तर तिमीलाई रोकेर तिम्रो ओठको मुस्कान खोस्ने अधिकार म राख्दिनँ। यदि मेरो अनुपस्थितिमा नै तिमीले आफ्नो पूर्णता देख्छौ भने, तिम्रो त्यो खुसी नै मेरो लागि अन्तिम सन्तुष्टि हुनेछ। तिमी जाँदै गर्दा म गुनासो गर्दिनँ, तर यति मात्र भन्छु तिमी जहाँ गए पनि, जोसँग रहे पनि आफ्नो ख्याल राख्नु। तिम्रो मन दुखाउने मेरो कहिल्यै कुनै मनसाय थिएन, यदि जान्ने-नजान्नेमा कुनै गल्ती भएको भए मलाई माफ गरिदिनु।
+
+तिम्रो याद आउँदा म आफैलाई सम्हाल्ने कोसिस गर्नेछु तर यो मुटुको कुनामा तिम्रो लागि एउटा यस्तो ठाउँ सुरक्षित रहनेछ जहाँ अरू कोही पुग्न सक्ने छैन। भाग्यले साथ दिएछ भने कुनै मोडमा फेरि भेट होला तर त्यतिबेला सम्मका लागि हामी केवल दुई अपरिचित यात्री हुनेछौँ जसको बाटो छुट्टिएको छ। तिम्रो भविष्य उज्ज्वल रहोस्, तिमीले चाहेका सबै कुराहरू पूरा हुन्। म त एउटा 'टुटिसकेको' मान्छे, तिम्रो सफलताको कामना गर्दै आफैलाई समेट्ने प्रयास गर्नेछु।
+
+अन्तिम पटक, तिम्रो साथ र मायाको लागि धेरै धेरै धन्यवाद। मेरो प्रेमलाई बोझ नठान्नु, यो केवल एउटा यस्तो अध्याय थियो जसको अन्त्य निकै दुखद भयो। सधैं खुसी रहनु। तिमीलाई एउटै बिन्ती छ आफ्नो ख्याल राख्नु। तिम्रो सपनाहरू धेरै ठूला छन्, ती सबै पूरा हुन्। कहिलेकाहीँ एक्लो महसुस भयो भने यो सम्झिनु कि कतै टाढा एउटा मान्छे आज पनि तिम्रो सफलताको लागि प्रार्थना गरिरहेको छ। मेरो प्रेम अब तिम्रो लागि दायित्व होइन, केवल एउटा मौन आर्शिवाद मात्र हुनेछ।
+
+हाम्रो कथा अधुरो रह्यो, तर यो अधुरोपनमा पनि एउटा आफ्नै अर्थ छ। तिमीले मलाई धेरै कुरा सिकायौ, जिउन सिकाउयौ र प्रेमको वास्तविक अर्थ बुझायौ। त्यसको लागि म तिमीलाई सधैं सम्झिरहनेछु। तिम्रो नयाँ गन्तव्य सुखद रहोस्, तिमीले रोजेको हरेक बाटोमा फूलहरू फुलुन्। मलाई खोज्ने प्रयास नगर्नु, किनकि म त्यहीँ हराउनेछु जहाँ तिम्रो र मेरो यादहरूको अन्त्य हुन्छ। तिम्रो सुन्दर भविष्यको कामना गर्दै, म तिम्रो जीवनबाट सधैंका लागि बिदा हुन्छु।
+
+अलविदा!`;
+
+        let index = 0;
+        const speed = 70; // टाइप हुने स्पिड
+
+        function openLetter() {
+            document.getElementById('phase1').style.display = 'none';
+            document.getElementById('phase2').style.display = 'flex';
+            
+            const music = document.getElementById('sadMusic');
+            music.play().catch(e => console.log("Music play blocked by browser. User interaction required."));
+            
+            typeWriter();
+        }
+
+        function typeWriter() {
+            if (index < message.length) {
+                document.getElementById("typewriter").innerHTML += message.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+                
+                // स्क्रोलिङ
+                if (index % 5 === 0) {
+                    window.scrollTo(0, document.body.scrollHeight);
+                }
+            } else {
+                document.getElementById('cursor').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
